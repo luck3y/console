@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-all:
-    name: Compile (no tests) with JDK 11
+    name: Compile (no tests) with JDK 8
     runs-on: ubuntu-latest
     steps:
     - uses: n1hility/cancel-previous-runs@v2
@@ -21,10 +21,10 @@ jobs:
         restore-keys: |
             m2-
     - uses: actions/checkout@v2
-    - name: Set up JDK11
+    - name: Set up JDK8
       uses: AdoptOpenJDK/install-jdk@v1
       with:
-        version: 11
+        version: 8
         impl: hotspot
     - name: Build
       run: mvn -U -B -fae -DskipTests clean install
